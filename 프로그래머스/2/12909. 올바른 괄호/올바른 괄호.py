@@ -1,13 +1,16 @@
 def solution(s):
+    # 스택 생성
+    stack = []
     answer = True
-    dap = 0
     for i in s:
         if i == '(':
-            dap +=1
-        else:
-            dap -=1
-        if dap <0 :
-            answer = False
-    if dap != 0:
-        answer = False
+            stack.append(i)
+        elif i == ')':
+            if len(stack) == 0 :
+                answer = False
+                break
+            stack.pop()
+
+    if len(stack) >0:
+        answer= False
     return answer
