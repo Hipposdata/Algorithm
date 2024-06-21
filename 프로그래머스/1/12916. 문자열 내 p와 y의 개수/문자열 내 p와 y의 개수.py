@@ -1,14 +1,7 @@
 def solution(s):
     answer = True
-    pcont = 0
-    ycont = 0
-    for i in list(s):
-        if i == 'P' or i == 'p':
-            pcont +=1
-        if i == 'Y' or i == 'y':
-            ycont +=1
-    if pcont == ycont:
-        answer = True
-    else:
-        answer = False
-    return answer
+    
+    # [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+    print('Hello Python')
+
+    return True
