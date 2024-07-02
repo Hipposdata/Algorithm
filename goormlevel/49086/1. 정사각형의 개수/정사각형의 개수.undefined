@@ -1,12 +1,9 @@
-# -*- coding: utf-8 -*-
-# UTF-8 encoding when using korean
-user_input = int(input())
+user_input = int(input()) # 입력
 
-
-dap = 0
-cont = 1
-while cont != user_input+1:
-	dap += (user_input - cont +1) * (user_input - cont +1)
-	cont +=1
+dap = 0 # 답안 저장할 변수
+cont = 1 # 한변의 길이 
+while cont <= user_input: # 한변의 길이가 입력받은 격자판 크기보다 커지면 종료 
+	dap += (user_input - cont +1) * (user_input - cont +1) # 
+	cont +=1 # 한변의 길이 1씩 더해서 각 정사각형 개수 
 print(dap)	
 	
