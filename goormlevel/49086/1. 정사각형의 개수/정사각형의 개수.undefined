@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+user_input = int(input())
+
+
+dap = 0
+cont = 1
+while cont != user_input+1:
+	dap += (user_input - cont +1) * (user_input - cont +1)
+	cont +=1
+print(dap)	
+	
