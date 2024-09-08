@@ -1,15 +1,11 @@
-N = int(input())
+import sys
 from collections import deque
-lst = deque()
+n = int(sys.stdin.readline())
 
-for i in range(1,N+1):
-    lst.append(i)
-if len(lst) == 1:
-    print(lst[0])
-while len(lst) >0:
-    lst.popleft()
-    if len(lst) == 1:
-        print(lst[0])
-    if len(lst) > 1:
-        lst.append(lst[0])
-        lst.popleft()
+lst = deque(i for i in range(n,1-1,-1))
+
+while len(lst) >1:
+    lst.pop()
+    lst.appendleft(lst[-1])
+    lst.pop()
+print(lst[0])
