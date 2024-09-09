@@ -1,16 +1,17 @@
-n = int(input())
+# 버블 정렬
 
-lst =[]
-for i in range(n):
-    a =int(input())
-    lst.append(a)
+import sys
+n = int(sys.stdin.readline())
 
-for j in range(n-1):
-    mn = lst[j]
-    for k in range(j+1,n):
-        if mn> lst[k]:
-            mn = lst[k]
-            lst[j], lst[k] = lst[k], lst[j]
+lst = []
+for _ in range(n):
+    lst.append(int(sys.stdin.readline()))
 
-for q in range(len(lst)):
-    print(lst[q])
+
+for i in range(len(lst)-1):
+    for j in range(i+1,len(lst)):
+        if lst[i] > lst[j]:
+            lst[i], lst[j] = lst[j], lst[i]
+
+for k in lst:
+    print(k)
