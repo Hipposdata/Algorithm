@@ -1,17 +1,15 @@
-N,k = map(int, input().split())
+# greedy
+import sys
+n, k = map(int, sys.stdin.readline().split())
 lst = []
-for i in range(N):
-    lst.append(int(input()))
+for _ in range(n):
+    lst.append(int(sys.stdin.readline()))
 
-lst.sort(reverse = True)
-
-
-dap = 0
-for i in lst:
-    if k == 0:
-        break
-    if k >= i:
-        dap += k // i
+cont = 0
+for i in reversed(lst):
+    if k // i >0:
+        cont += k // i
         k %= i
-
-print(dap)
+    if k ==0:
+        break
+print(cont)
