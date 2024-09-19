@@ -1,17 +1,13 @@
+# 유클리드 호제법
 import sys
+t = int(sys.stdin.readline())
 
 def gcd(a,b):
-    if b == 0:
-        return a
-    r = a%b
-    if r !=0:
-        a,b = b, r
-        return gcd(a,b)
-    else:
+    if a % b == 0:
         return b
+    else:
+        return gcd(b, a % b)
 
-T = int(sys.stdin.readline())
-
-for i in range(T):
-    a , b = map(int,sys.stdin.readline().split())
-    print(int((a*b)/gcd(a,b)))
+for _ in range(t):
+    a, b = map(int, sys.stdin.readline().split())
+    print(int(a*b / gcd(a,b)))
