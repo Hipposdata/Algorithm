@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS 
+WHERE ANIMAL_TYPE = 'Dog' AND
+NAME LIKE '%EL%'
+# MySQL 환경에서는 연산자 문자열 대소문자 구분하지 않음
+ORDER BY NAME ASC ; 
