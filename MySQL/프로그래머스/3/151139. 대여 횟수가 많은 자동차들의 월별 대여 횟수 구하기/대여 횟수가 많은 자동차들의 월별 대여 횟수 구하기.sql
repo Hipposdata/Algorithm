@@ -10,7 +10,7 @@ AND CAR_ID IN (
         HAVING COUNT(CAR_ID) >= 5
     ) # 전체기간중 5번 이상 대여된 차 아이디 찾기
 
-# 찾은 차 아이디를 월별, 차랑별로 다시 그룹화
+# 찾은 차 아이디를 월별, 차랑별로 다시 그룹화 (이미 기간동안 5번이상 대여된 차는 구분되어있음)
 GROUP BY CAR_ID, MONTH
 ORDER BY MONTH ASC, CAR_ID DESC ;
 
@@ -23,4 +23,4 @@ ORDER BY MONTH ASC, CAR_ID DESC ;
 
 # GROUP BY CAR_ID, MONTH
 # HAVING COUNT(CAR_ID) >= 5 조건절에서 특정 월에만 5번이상 차를 찾게됨(목표-> 전체기간동안 5번이상 빌린차 찾기)
-# 서브쿼리로 해결 
+# 서브쿼리로 해결
