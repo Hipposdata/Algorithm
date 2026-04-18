@@ -1,0 +1,19 @@
+-- 코드를 입력하세요
+SELECT FOOD_TYPE, REST_ID,	REST_NAME,	FAVORITES
+FROM REST_INFO
+WHERE (FOOD_TYPE, FAVORITES) IN (
+    SELECT FOOD_TYPE, MAX(FAVORITES)
+    FROM REST_INFO
+    GROUP BY FOOD_TYPE)
+
+ORDER BY FOOD_TYPE DESC;
+
+# 서브쿼리 활용하기 
+# 음식종류별로 가장많은 즐겨찾기 수 -> 다른 칼럼들 매칭해주기 위함 REST_ID, REST_NAME
+
+
+
+
+
+
+
