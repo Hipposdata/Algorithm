@@ -1,30 +1,17 @@
-# dfs  모든 경우의수 
-# cnt +=1
-# 모든 숫자를 이용해서 덧뺄셈으로 만들어야함
-
 def solution(numbers, target):
+    answer = 0
     
-    giho = [-1, 1]
-    stck = [] 
-    stck.append((0,0))
-    # 타겟 만족횟수
-    cnt = 0
-    # 사용한 숫자 수 
+    sm = [0]
     
-    while stck:
-        cur_sum, idx = stck.pop()
+    for i in numbers:
         
-        if idx == len(numbers):
-            if cur_sum == target:
-                cnt+=1
-            continue
+        nxt_sm = []
+        
+        for j in sm:
+            nxt_sm.append(j + i)    
+            nxt_sm.append(j - i)
             
-        cur_num = numbers[idx]
-        
-        # 가능한 모든 조합 
-        for i in giho:
-            nn = cur_sum + (i * cur_num)
-            stck.append((nn, idx +1))
-    return cnt
+        sm = nxt_sm
 
-
+    
+    return sm.count(target)
