@@ -1,32 +1,25 @@
+# 방문 X -> 네트워크 +1 -> 탐색후 주변연결된 컴퓨터 방문처리 
 def solution(n, computers):
-    
-    vst = [False] * n
     answer = 0
     
-    # 컴퓨터 하나씩 방문
+    vst = [False] * n
+    
     for i in range(n):
-        
-        # 방문X -> +1
         if vst[i] == False:
-            answer +=1
-        elif vst[i] == True:
-            continue
-        
-        stck = [i]
-        vst[i] = True
-        
-        # 전체 탐색
-        while stck:
-            cur = stck.pop()
+            answer += 1
+            vst[i] = True
             
-            # 노드 순회 
-            for nxt in range(n):
-                # 노드 연결된 경우 
-                if computers[cur][nxt] ==1:
-                    # 연결됐는데 방문기록 없으면 -> 방문처리 
-                    if vst[nxt] == False:
+            stck = []
+            stck.append(i)
+            
+            while stck:
+                cur = stck.pop()
+                
+                for nxt in range(n):
+                    if computers[cur][nxt] ==1 and vst[nxt] == False:
                         vst[nxt] = True
                         stck.append(nxt)
-    
+                        
 
+        
     return answer
