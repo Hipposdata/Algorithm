@@ -12,7 +12,6 @@ def solution(n, times):
         for i in times:
             cnt += time // i
             
-            
         if cnt < n:
             left = time +1
         else:
