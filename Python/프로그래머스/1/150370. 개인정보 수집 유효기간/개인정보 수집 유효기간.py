@@ -1,19 +1,25 @@
 def solution(today, terms, privacies):
     answer = []
+    # 딕셔너리화
+    dic = {}
+    for j in terms:
+        a,b = j.split()
+        dic[a] = b
+    print(dic)
     
-    # 1. 수식 전체를 괄호로 묶어 줄바꿈 에러 해결
-    td = ( (int(today[0:4])) * 336 
-         + (int(today[5:7])-1) * 28  
-         + (int(today[8:10])) )
-    
-    for p_idx, j in enumerate(privacies):
-        for i in terms:
-            if i[0] == j[-1]:
+    to_lst = list(map(int, today.split('.')))
+    cnt_to = to_lst[0]*28*12 + to_lst[1] *28 + to_lst[2]
 
-                pd = (int(j[0:4])) * 336 + (int(j[5:7])-1) * 28 + (int(j[8:10])) + int(i[2:]) * 28 
     
-                if td >= pd:
-
-                    answer.append(p_idx + 1)
-                    
+    for i in range(len(privacies)):
+        a, b = privacies[i].split()
+        lst = list(map(int, a.split('.')))
+        cnt = lst[0] * 28*12 + lst[1] * 28 + lst[2]
+        print(cnt_to)
+        print(cnt + int(dic[b]))
+        
+        if cnt_to >= cnt + (int(dic[b])*28):
+            answer.append(i+1)
+    
+    
     return answer
