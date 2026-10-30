@@ -1,25 +1,34 @@
+# dic 형식 신고당한자:신고한자
+
+
 def solution(id_list, report, k):
     answer = []
+    # 딕셔너리 생성 
     dic = {}
-    dic_mail = {}
-    report = set(report)
-    
-    for i in id_list:
-        dic[i] = 0     
-        dic_mail[i] = 0
-    
-    # 신고당한 횟수
-    for r in report:
-        a,b = r.split()
-        dic[b] +=1
-        
-        
-    for r in report:
-        a,b = r.split()            
-        if dic[b] >=k:
-            dic_mail[a] +=1
-    
+    tmp = {}
     for j in id_list:
-        answer.append(dic_mail[j])
+        dic[j] =[]
+        tmp[j] = 0
+        
+    # print(dic)
+
+    
+    for i in report:
+        a,b = i.split()[0], i.split()[1]
+        
+        dic[b].append(a)
+    
+    # print(dic)
+    
+
+    # 개수 세기 
+    for ky,v in dic.items():
+        if len(set(dic[ky])) >= k:
+            for t in set(v):
+                tmp[t] +=1
+                
+    for q,w in tmp.items():
+        answer.append(w)
+
         
     return answer
