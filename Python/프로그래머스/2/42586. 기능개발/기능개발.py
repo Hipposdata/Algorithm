@@ -1,26 +1,29 @@
 def solution(progresses, speeds):
     answer = []
-    num = []
     
-    for p in range(len(progresses)):
-        cnt = 0
-        while True:
-            if progresses[p] >=100:
-                num.append(cnt)
-                break
-            progresses[p] += speeds[p]
-            cnt +=1
-            
-    cnt2 = 1
-    hap = num[0]
-    
-    for n in range(1, len(num)):
-        if num[n] <=hap:
-            cnt2+=1
-        else:
-            answer.append(cnt2)
-            cnt2 = 1
-            hap = num[n]
+    idx = 0
+    while True:
+        if all(list(map(lambda x: x>=100 , progresses))):
+            break
+        print(progresses)
         
-    answer.append(cnt2)
+        for j in range(len(speeds)):
+            progresses[j] += speeds[j]
+        
+        cnt = 0
+        # 인덱스 0부터 차례대로 확인 -> 100넘는경우 다음 인덱스 통과 
+        
+        # idx 기준부터 확인하기
+        for i in range(idx, len(progresses)):
+            if progresses[i] >=100:
+                idx +=1
+                cnt+=1
+            else:
+                break
+
+        if cnt> 0:
+            answer.append(cnt)
+        print(answer)
+
+                
     return answer
